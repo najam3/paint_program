@@ -1,6 +1,6 @@
- export const getActions = ( shape ) => ({
+ export const getActions = ( tool ) => ({
               type: 'GET_SHAPE',
-              payload: { shape }
+              payload: { tool }
    });
  
 
@@ -19,4 +19,9 @@
    export const getCircleData = ( circles ) => ({
       type: 'GET_DATA',
       payload: { circles }
+   });
+
+   export const getStrokeData = ( stroke ) => ({
+    type: 'GET_STROKE_PROPERTIES',
+    payload: { stroke }
    })

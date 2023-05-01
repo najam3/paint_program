@@ -1,13 +1,13 @@
 
-  const initialState = { shape: [], thickness: '30', color: '#fff', data:[] }
+  const initialState = { tool: [], thickness: '30', color: '#fff', data: null, strokeData: null }
   
- 
+  
    export const actionReducer = (state = initialState, action) => {
               switch(action.type) {
                 case 'GET_SHAPE':
                   return{
                     ...state,
-                    shape: action.payload.shape
+                    tool: action.payload.tool
                   };
               
                case 'GET_THICKNESS' :
