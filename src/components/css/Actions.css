@@ -1,0 +1,25 @@
+.list {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    padding: 1em;
+    align-items: center;
+}
+
+ .wrapper {
+   color: black;
+   display: flex;
+   flex-direction: column;
+   gap: 1em;
+   position: absolute;
+}
+
+
+.cus-brush {
+    position: absolute;
+    top: 0;
+   right: -40%;
+   background-color: gray;
+   padding: 1em;
+}
+
