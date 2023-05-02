@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {BrushOutlined, Interests, AspectRatio, Clear} from '@mui/icons-material';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getActions, getColor, getThickness } from '../redux/actions/actions';
 import { Box, IconButton, Input, Typography } from '@mui/material';
 import '../components/css/Actions.css';
@@ -8,7 +8,7 @@ import '../components/css/Actions.css';
 const Actions = () => {
 const dispatch = useDispatch();
 const [show, setShow] = useState(false)
-
+const shape = useSelector(state => state.shape);
 
 
 
@@ -16,6 +16,7 @@ function getShape(e) {
   const shape = e.currentTarget.id
    dispatch(getActions(shape));
    setShow(true)
+   
 }
 
 function getProperties(e) {
@@ -55,11 +56,11 @@ function getProperties(e) {
           <span>Shapes</span>
           </div>
 
-           <div className='list'>
+           <div onClick={getShape} id='erase' className='list'>
             <IconButton>
-            <Clear id='erase' />
+            <Clear />
             </IconButton>
-            <span>Erase</span>
+            <span>Clear</span>
            </div>
 
            <div className='list'>

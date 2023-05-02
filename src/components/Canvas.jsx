@@ -9,7 +9,7 @@ const Canvas = () => {
   const thickness = useSelector(state => state.thickness);
   const color = useSelector(state => state.color);
   const circleData = useSelector(state => state.data);
-
+  
   const dispatch = useDispatch();
   let rad = 0;
   let x = 0, y = 0
@@ -28,12 +28,14 @@ dispatch(getCircleData(state));
          p.background(0);
        };
     
-        p.draw = () => {
-          circleData.map(circle => {
-              return p.circle(circle.posX, circle.posY, circle.radius);
-            });
-        
-        }
+       if(toolSelected) {
+         p.draw = () => {
+           circleData.map(circle => {
+               return p.circle(circle.posX, circle.posY, circle.radius);
+             });
+         
+         }
+       }
       
          const drawCircle = () => {
            
@@ -63,22 +65,41 @@ dispatch(getCircleData(state));
          
          
          const drawStroke = () => {  
+          let x1, y1;
+          //  p.draw = () => {
+          //   stroke.map(str => {
+          //     return p.circle(str.posX, str.posY, str.radius);
+          //   })
+          //  }
+
             p.mouseDragged = () => {
-                 let x1 = p.mouseX;
-                 let y1 = p.mouseY;
+                 x1 = p.mouseX;
+                 y1 = p.mouseY;
+               
                  p.noStroke();
                  p.fill(color);
-                 p.circle(x1, y1, thickness)
+                 p.circle(x1, y1, thickness);
               }; 
 
+           
        
          }
-         
+
+          const clearCanvas = () => {
+             p.draw = () => {
+              setState([]);
+              p.clear();
+              p.background(0);
+             }
+         }
+
          if(toolSelected === 'brush') {
              drawStroke();
          } else if( toolSelected === 'circle' ) {
              drawCircle();          
-         }
+         } else if (toolSelected === 'erase') {
+            clearCanvas();
+         }  
   };
 
 
