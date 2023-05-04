@@ -1,9 +1,8 @@
 import React from "react";
-import Canvas from "./components/Canvas";
 import {Grid} from '@mui/material';
 import Actions from "./components/Actions";
-import CanvasTest from "./components/CanvasTest";
-import SketchPad from "./components/SketchPad";
+import Canvas from "./components/Canvas";
+
 
 
 const App = () => {
@@ -15,10 +14,9 @@ const App = () => {
      </Grid>
 
      <Grid lg={10} item>
-       <CanvasTest />
+       <Canvas />
      </Grid>
     </Grid>
-  
   )
 };
 export default App;

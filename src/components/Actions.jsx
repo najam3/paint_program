@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {BrushOutlined, Interests, AspectRatio, Clear} from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 import { getActions, getColor, getThickness } from '../redux/actions/actions';
-import { Box, IconButton, Input, Typography } from '@mui/material';
+import { Box, Card, CardContent, IconButton, Input, Stack, Typography } from '@mui/material';
 import '../components/css/Actions.css';
 
 const Actions = () => {
@@ -50,13 +50,29 @@ function getProperties(e) {
           </div> : ''
           }
             
-          <div className='list' id='circle' onClick={getShape}>
-            <IconButton>
-           <Interests /> 
-          </IconButton>
-          <span>Shapes</span>
-          </div>
+          <div className='list' style={{display:'flex', alignItems:'center'}}>
+            <>
+              <IconButton>
+              <Interests /> 
+             </IconButton>
+            </>
+            <span>Shapes</span>
+                <Card sx={{width:'110px'}}>
+                  <CardContent>
+                  <Typography variant='p' fontSize='12px'>Choose Shape</Typography>
+                      <Stack sx={{display:'flex', flexDirection:'row', flexWrap:'wrap', gap:'1em', justifyContent:'center'}}>
+                     <Box id='square'  onClick={getShape} sx={{cursor:'pointer'}} marginTop='0.3em' border='1px solid black' width='15px' height='15px'></Box>
+                     <Box id='circle' onClick={getShape} sx={{cursor:'pointer'}}  borderRadius='50%' marginTop='0.3em' border='1px solid black' width='15px' height='15px'></Box>
+                     <Box id='triangle' onClick={getShape} sx={{cursor:'pointer'}} width='0' height='0' borderLeft='10px solid transparent' borderRight='10px solid transparent' borderBottom='20px solid black'  ></Box>
+                     <Box id='line' onClick={getShape} sx={{cursor:'pointer', transform:'rotate(45deg)', marginTop:'0.5em'}} width='20px' height={0} border={'1px solid black'}></Box>
+                    </Stack>
+                    
+                  </CardContent>
+                </Card>
+            </div>
 
+          
+           
            <div onClick={getShape} id='erase' className='list'>
             <IconButton>
             <Clear />
