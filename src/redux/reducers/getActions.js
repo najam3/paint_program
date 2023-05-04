@@ -4,7 +4,7 @@
   
    export const actionReducer = (state = initialState, action) => {
               switch(action.type) {
-                case 'GET_SHAPE':
+                case 'GET_TOOL':
                   return{
                     ...state,
                     tool: action.payload.tool
@@ -27,7 +27,11 @@
                     ...state,
                     data: action.payload.circles
                   }
-
+                case 'GET_STROKE_PROPERTIES':
+                  return {
+                    ...state, 
+                    strokeData: action.payload.stroke
+                  }
                 default: 
                   return state;
               }

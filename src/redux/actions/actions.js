@@ -1,5 +1,5 @@
  export const getActions = ( tool ) => ({
-              type: 'GET_SHAPE',
+              type: 'GET_TOOL',
               payload: { tool }
    });
  
