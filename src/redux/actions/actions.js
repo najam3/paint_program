@@ -25,3 +25,8 @@
     type: 'GET_STROKE_PROPERTIES',
     payload: { stroke }
    })
+
+   export const getCoords = ( coords ) => ({
+      type: 'GET_COORDINATES',
+      payload: { coords }
+   })

@@ -1,5 +1,5 @@
 
-  const initialState = { tool: [], thickness: '30', color: '#fff', data: null, strokeData: null }
+  const initialState = { tool: [], thickness: '30', color: '#fff', data: null, strokeData: null, coordinates: [] }
   
   
    export const actionReducer = (state = initialState, action) => {
@@ -32,6 +32,12 @@
                     ...state, 
                     strokeData: action.payload.stroke
                   }
+
+                  case 'GET_COORDINATES':
+                    return {
+                      ...state,
+                      coordinates: action.payload.coords
+                    }
                 default: 
                   return state;
               }

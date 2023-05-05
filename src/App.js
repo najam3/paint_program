@@ -1,22 +1,14 @@
 import React from "react";
-import {Grid} from '@mui/material';
-import Actions from "./components/Actions";
-import Canvas from "./components/Canvas";
+import Rough from "./components/Rough";
+
 
 
 
 const App = () => {
-  return(
-    <Grid container>
-
-     <Grid lg={2} item>
-       <Actions/>
-     </Grid>
-
-     <Grid lg={10} item>
-       <Canvas />
-     </Grid>
-    </Grid>
-  )
+  return(  
+  <React.Fragment>
+    <Rough />
+  </React.Fragment>
+    )
 };
 export default App;
